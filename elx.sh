@@ -14,3 +14,19 @@ sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 sudo usermod -aG docker $USER
+
+docker pull elixirprotocol/validator:3.1.0
+
+docker run -d \
+--env-file /root/elxnode/validator.env \
+--name elixir \
+--restart unless-stopped \
+elixirprotocol/validator:3.1.0
+
+docker run -it \
+--env-file /root/elxnode/validator.env \
+--name elixir \
+elixirprotocol/validator:3.1.0
+
+docker ps -a
+
