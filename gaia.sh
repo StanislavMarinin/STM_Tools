@@ -24,12 +24,9 @@ execute_with_prompt "curl -sSfL 'https://github.com/GaiaNet-AI/gaianet-node/rele
 
 execute_with_prompt "source ~/.bashrc"
 
-execute_with_prompt "gaianet init --config https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen2-0.5b-instruct/config.json >> ~/g_setup.txt"
+execute_with_prompt "gaianet init --config https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen2-0.5b-instruct/config.json"
 
-execute_with_prompt "gaianet start >> ~/g_setup.txt"
+execute_with_prompt "gaianet start"
 
-execute_with_prompt ""
+execute_with_prompt "gaianet info > gaia.txt"
 
-execute_with_prompt ""
-
-execute_with_prompt ""
