@@ -16,4 +16,4 @@ execute_with_prompt() {
     fi
 }
 
-execute_with_prompt "gaianet info > gaia.txt"
+execute_with_prompt "echo gaianet info > gaia.txt"
