@@ -16,4 +16,21 @@ execute_with_prompt() {
     fi
 }
 
-execute_with_prompt "gaianet info > gaia.txt"
+execute_with_prompt "sudo apt update -y sudo apt update"
+execute_with_prompt "sudo apt install python3-pip -y"
+execute_with_prompt "sudo apt install nano -y"
+execute_with_prompt "sudo apt install screen -y"
+execute_with_prompt "pip install requests"
+execute_with_prompt "pip install faker"
+
+
+
+execute_with_prompt "
+execute_with_prompt "
+execute_with_prompt "
+execute_with_prompt "
+execute_with_prompt "
+execute_with_prompt "
+execute_with_prompt "
+execute_with_prompt "
+execute_with_prompt "
