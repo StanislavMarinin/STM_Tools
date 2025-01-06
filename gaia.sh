@@ -30,3 +30,24 @@ execute_with_prompt "gaianet start"
 
 execute_with_prompt "gaianet info > gaia.txt"
 
+sudo tee /etc/systemd/system/gaianet.service << EOF
+[Unit]
+Description=Gaianet Node Service
+After=network.target
+[Service]
+Type=forking
+RemainAfterExit=true
+ExecStart=/root/gaianet/bin/gaianet start
+ExecStop=/root/gaianet/bin/gaianet stop
+ExecStopPost=/bin/sleep 20
+Restart=always
+RestartSec=5
+User=root
+[Install]
+WantedBy=multi-user.target
+EOF
+
+execute_with_prompt "sudo systemctl daemon-reload"
+execute_with_prompt "sudo systemctl restart gaianet.service"
+execute_with_prompt "sudo systemctl status gaianet.service"
+execute_with_prompt "journalctl -u gaianet.service -f"
