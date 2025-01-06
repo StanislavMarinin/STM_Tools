@@ -15,3 +15,21 @@ execute_with_prompt() {
         exit 1
     fi
 }
+
+execute_with_prompt "sudo apt update -y && sudo apt upgrade -y"
+
+touch ~/g_setup.txt
+
+execute_with_prompt "curl -sSfL 'https://github.com/GaiaNet-AI/gaianet-node/releases/latest/download/install.sh' | bash >> ~/g_setup.txt"
+
+execute_with_prompt "source ~/.bashrc"
+
+execute_with_prompt "gaianet init --config https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen2-0.5b-instruct/config.json >> ~/g_setup.txt"
+
+execute_with_prompt "gaianet start >> ~/g_setup.txt"
+
+execute_with_prompt ""
+
+execute_with_prompt ""
+
+execute_with_prompt ""
