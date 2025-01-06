@@ -26,9 +26,7 @@ execute_with_prompt "source ~/.bashrc"
 
 execute_with_prompt "gaianet init --config https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen2-0.5b-instruct/config.json"
 
-execute_with_prompt "gaianet start"
-
-execute_with_prompt "gaianet info > gaia.txt"
+#execute_with_prompt "gaianet start"
 
 sudo tee /etc/systemd/system/gaianet.service << EOF
 [Unit]
@@ -48,6 +46,9 @@ WantedBy=multi-user.target
 EOF
 
 execute_with_prompt "sudo systemctl daemon-reload"
-execute_with_prompt "sudo systemctl restart gaianet.service"
+execute_with_prompt "sudo systemctl start gaianet.service"
+
+execute_with_prompt "gaianet info > gaia.txt"
+
 execute_with_prompt "sudo systemctl status gaianet.service"
 execute_with_prompt "journalctl -u gaianet.service -f"
