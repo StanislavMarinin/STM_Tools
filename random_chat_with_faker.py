@@ -5,7 +5,7 @@ import time
 from faker import Faker
 from datetime import datetime
 
-node_url = "WADR.gaia.domains/v1/chat/completions"
+node_url = "wall.gaia.domains/v1/chat/completions"
 
 faker = Faker()
 
