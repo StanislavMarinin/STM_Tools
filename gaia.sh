@@ -48,12 +48,13 @@ EOF"
 execute_with_prompt "sudo systemctl daemon-reload"
 execute_with_prompt "source ~/.bashrc"
 execute_with_prompt "gaianet init --config 'https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen2-0.5b-instruct/config.json'"
-gaianet run
+#gaianet run
 sudo systemctl restart gaianet.service
 execute_with_prompt "gaianet info > gaia.txt"
 #sudo systemctl status gaianet.service
 #execute_with_prompt "journalctl -u gaianet.service -f"
-exceute_with_prompt "sudo apt install python3-pip -y"
+#exceute_with_prompt "sudo apt install python3-pip -y"
+sudo apt install python3-pip -y
 execute_with_prompt "sudo apt install nano -y"
 execute_with_prompt "sudo apt install tmux -y"
 execute_with_prompt "pip install requests"
