@@ -52,4 +52,16 @@ sudo systemctl restart gaianet.service
 execute_with_prompt "gaianet info > gaia.txt"
 sudo systemctl status gaianet.service
 execute_with_prompt "journalctl -u gaianet.service -f"
+xecute_with_prompt "sudo apt install python3-pip -y"
+execute_with_prompt "sudo apt install nano -y"
+execute_with_prompt "sudo apt install screen -y"
+execute_with_prompt "pip install requests"
+execute_with_prompt "pip install faker"
+gaianet init --config 'https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen2-0.5b-instruct/config.json'
+gaianet run
+WADR=$(sed -n 's/ *\"address\": \"\([^\"]*\)\".*/\1/p' /root/gaianet/nodeid.json)
+execute_with_prompt "wget https://raw.githubusercontent.com/StanislavMarinin/STM_Tools/refs/heads/main/random_chat_with_faker.py"
+execute_with_prompt "sed -i 's/wall/$WADR/g' random_chat_with_faker.py"
+FCHAT="python3 ~/random_chat_with_faker.py"
+execute_with_prompt "tmux new-session -d -s fakerchat bash -c \"${FCHAT}\""
 
