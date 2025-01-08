@@ -22,7 +22,7 @@ execute_with_prompt "sudo apt install nano -y"
 execute_with_prompt "sudo apt install screen -y"
 execute_with_prompt "pip install requests"
 execute_with_prompt "pip install faker"
-execute_with_prompt "gaianet run"
+gaianet run
 WADR=$(sed -n 's/ *\"address\": \"\([^\"]*\)\".*/\1/p' /root/gaianet/nodeid.json)
 execute_with_prompt "wget https://raw.githubusercontent.com/StanislavMarinin/STM_Tools/refs/heads/main/random_chat_with_faker.py"
 execute_with_prompt "sed -i 's/wall/$WADR/g' random_chat_with_faker.py"
