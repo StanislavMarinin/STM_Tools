@@ -17,11 +17,12 @@ execute_with_prompt() {
 }
 
 execute_with_prompt "sudo apt update -y && sudo apt upgrade -y"
+execute_with_prompt "apt install curl -y"
 
 touch ~/g_setup.txt
 
 execute_with_prompt "curl -sSfL 'https://github.com/GaiaNet-AI/gaianet-node/releases/latest/download/install.sh' | bash >> ~/g_setup.txt"
-
+source ~/.bashrc
 execute_with_prompt "source ~/.bashrc"
 
 #execute_with_prompt "gaianet init --config 'https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen2-0.5b-instruct/config.json'"
@@ -47,6 +48,7 @@ EOF"
 
 execute_with_prompt "sudo systemctl daemon-reload"
 execute_with_prompt "source ~/.bashrc"
+source ~/.bashrc
 execute_with_prompt "gaianet init --config 'https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen2-0.5b-instruct/config.json'"
 #gaianet run
 sudo systemctl restart gaianet.service
